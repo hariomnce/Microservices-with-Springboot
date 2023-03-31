@@ -1,0 +1,72 @@
+package com.microservices.userservice.serviceImpl;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.microservices.userservice.entity.User;
+import com.microservices.userservice.exception.ResourceNotFoundException;
+import com.microservices.userservice.repo.UserRepository;
+import com.microservices.userservice.services.UserService;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	UserRepository userRepository;
+
+	@Autowired
+	RestTemplate restTemplate;
+
+	private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
+	@Override
+	public User saveUser(User user) {
+
+		// Generate unique userId
+		String randomUserId = UUID.randomUUID().toString();
+		user.setUId(randomUserId);
+		return userRepository.save(user);
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		return userRepository.findAll();
+	}
+
+	@Override
+	public User getUser(String uId) {
+		// Get user from database with the help of user repository
+		User user = userRepository.findById(uId).orElseThrow(
+				() -> new ResourceNotFoundException("User with given id is not found on server!!! : " + uId));
+		// Fetch rating of the above user from RATING SERVICE
+		// http://localhost:8083/ratings/users/73c2a8f4-ae19-4b89-82ea-b2516e895ddd
+
+		ArrayList forObject = restTemplate.getForObject(
+				"http://localhost:8083/ratings/users/73c2a8f4-ae19-4b89-82ea-b2516e895ddd", ArrayList.class);
+		logger.info("{} ", forObject);
+		return user;
+	}
+
+	@Override
+	public User deleteByUid(String uId) {
+		User delete = getUser(uId);
+		userRepository.delete(delete);
+		return delete;
+	}
+
+	@Override
+	public User updateByUid(String uId) {
+		// userRepository.save(uId);
+		User update=getUser(uId);
+		userRepository.findByUid(uId);
+		return update;
+	}
+
+}

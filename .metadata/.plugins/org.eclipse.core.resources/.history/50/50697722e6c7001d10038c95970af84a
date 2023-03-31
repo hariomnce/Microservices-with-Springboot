@@ -1,0 +1,14 @@
+#spring.datasource.name=login
+spring.datasource.url=jdbc:mysql://localhost:3306/microservices
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+spring.jpa.hibernate.ddl-auto = update
+spring.main.banner-mode=off
+server.port=8081
+springdoc.swagger-ui.path=/swagger-ui.html
+#spring.mvc.pathmatch.matching-strategy=ant-path-matcher
+eureka.instance.prefer-ip-address=true
+eureka.client.fetch-registry=true
+eureka.client.register-with-eureka=true

@@ -1,0 +1,52 @@
+{"properties": [
+  {
+    "name": "server.spring.datasource.url",
+    "type": "java.lang.String",
+    "description": "A description for 'server.spring.datasource.url'"
+  },
+  {
+    "name": "server.spring.datasource.username",
+    "type": "java.lang.String",
+    "description": "A description for 'server.spring.datasource.username'"
+  },
+  {
+    "name": "server.spring.datasource.password",
+    "type": "java.lang.String",
+    "description": "A description for 'server.spring.datasource.password'"
+  },
+  {
+    "name": "server.spring.datasource.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'server.spring.datasource.driver-class-name'"
+  },
+  {
+    "name": "server.jpa.hibernate.ddl-auto",
+    "type": "java.lang.String",
+    "description": "A description for 'server.jpa.hibernate.ddl-auto'"
+  },
+  {
+    "name": "server.spring.jpa.hibernate.ddl-auto",
+    "type": "java.lang.String",
+    "description": "A description for 'server.spring.jpa.hibernate.ddl-auto'"
+  },
+  {
+    "name": "server.spring.jpa.hibernate.show-sql",
+    "type": "java.lang.String",
+    "description": "A description for 'server.spring.jpa.hibernate.show-sql'"
+  },
+  {
+    "name": "server.spring.jpa.show-sql",
+    "type": "java.lang.String",
+    "description": "A description for 'server.spring.jpa.show-sql'"
+  },
+  {
+    "name": "server.spring.jpa.properties.hibernate.dialect",
+    "type": "java.lang.String",
+    "description": "A description for 'server.spring.jpa.properties.hibernate.dialect'"
+  },
+  {
+    "name": "spring.jpa.hibernate.dialect",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.hibernate.dialect'"
+  }
+]}
